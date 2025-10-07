@@ -169,12 +169,12 @@ local function queueScript()
 wait(2)
 print("Auto-restarting script...")
 local success = pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/roblox39/main/mhm.lua"))()
+    loadstring(game:HttpGet("https://github.com/sketchboyroblox/sorry123/blob/main/dhrp.lua"))()
 end)
 if not success then
     wait(3)
     pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/roblox39/main/mhm.lua"))()
+        loadstring(game:HttpGet("https://github.com/sketchboyroblox/sorry123/blob/main/dhrp.lua"))()
     end)
 end
 ]])
@@ -187,7 +187,7 @@ end
         if game.PlaceId then
             pcall(function()
                 print("Backup restart method activated")
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/roblox39/main/mhm.lua"))()
+                loadstring(game:HttpGet("https://github.com/sketchboyroblox/sorry123/blob/main/dhrp.lua"))()
             end)
         end
     end)
