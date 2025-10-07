@@ -24,13 +24,12 @@ local EMOTE_ID = 5938365243
 local function initializeMessageVariations()
     messageVariations = {
         "aaaahh yru tiiiht 😩",
+        "ahhh take this 😩",
         "bro shes wte 😭gg mhm",
         "hi ₐgeplayer behbeh 👋 😳",
         "shame18 creams 💦",
         "cnc heaven gg mhm",
         "shame18 for promos like this",
-        "IM NOT GOING TO BE ABLE TO HOLD IT 😩💦",
-        "keep talking my ₐgeplayer behbeh 💦",
         "geplay heaven gg mhm",
         "LOL HES CLOSE IN VC ggmhm",
         "its okay keep those princessparts open ggmhm",
@@ -760,3 +759,4 @@ end
 
 initialize()
 initialize()
+
