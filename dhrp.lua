@@ -24,12 +24,13 @@ local EMOTE_ID = 5938365243
 local function initializeMessageVariations()
     messageVariations = {
         "aaaahh yru tiiiht 😩",
-        "ahhh take this 😩",
         "bro shes wte 😭gg mhm",
         "hi ₐgeplayer behbeh 👋 😳",
         "shame18 creams 💦",
         "cnc heaven gg mhm",
         "shame18 for promos like this",
+        "IM NOT GOING TO BE ABLE TO HOLD IT 😩💦",
+        "keep talking my ₐgeplayer behbeh 💦",
         "geplay heaven gg mhm",
         "LOL HES CLOSE IN VC ggmhm",
         "its okay keep those princessparts open ggmhm",
@@ -170,12 +171,12 @@ local function queueScript()
 wait(2)
 print("Auto-restarting script...")
 local success = pcall(function()
-    loadstring(game:HttpGet("https://github.com/sketchboyroblox/sorry123/blob/main/dhrp.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/sorry123/main/dhrp.lua"))()
 end)
 if not success then
     wait(3)
     pcall(function()
-        loadstring(game:HttpGet("https://github.com/sketchboyroblox/sorry123/blob/main/dhrp.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/sorry123/main/dhrp.lua"))()
     end)
 end
 ]])
@@ -188,7 +189,7 @@ end
         if game.PlaceId then
             pcall(function()
                 print("Backup restart method activated")
-                loadstring(game:HttpGet("https://github.com/sketchboyroblox/sorry123/blob/main/dhrp.lua"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/sorry123/main/dhrp.lua"))()
             end)
         end
     end)
@@ -759,4 +760,3 @@ end
 
 initialize()
 initialize()
-
