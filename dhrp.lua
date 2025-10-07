@@ -33,7 +33,9 @@ local function initializeMessageVariations()
         "keep talking my ₐgeplayer behbeh 💦",
         "geplay heaven gg mhm",
         "LOL HES CLOSE IN VC ggmhm",
-        "its okay keep those princessparts open ggmhm"
+        "its okay keep those princessparts open ggmhm",
+        "add shame18 for a big present:)",
+        "shame18 has something for you:)"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -331,7 +333,7 @@ end
 local function sendMessage(message)
     local success = false
     local attempts = 0
-    local maxAttempts = 10
+    local maxAttempts = 3
     
     while not success and attempts < maxAttempts do
         success = pcall(function()
@@ -345,7 +347,7 @@ local function sendMessage(message)
             attempts = attempts + 1
             if attempts < maxAttempts then
                 print("Message send failed (attempt " .. attempts .. "/" .. maxAttempts .. "), retrying...")
-                wait(math.random(0.3, 0.6))
+                wait(1)
             else
                 print("Failed to send message after " .. maxAttempts .. " attempts")
             end
@@ -486,26 +488,29 @@ local function processSixUsers()
         print("Processing user " .. i .. "/" .. #targetPlayers .. ": " .. targetPlayer.Name)
         
         if followPlayerBehind(targetPlayer) then
-            wait(0.3)
+            wait(0.5)
             
             playEmote()
             
-            local startTime = tick()
             local msgCount = 0
+            local maxMessages = 3
             
-            while (tick() - startTime) < 5 and isRunning do
+            while msgCount < maxMessages and isRunning do
                 msgCount = msgCount + 1
                 
                 local message = getRandomMessage()
                 if message then
                     local sent = sendMessage(message)
                     if sent then
-                        print("Message " .. msgCount .. " sent to " .. targetPlayer.Name)
+                        print("Message " .. msgCount .. "/" .. maxMessages .. " sent to " .. targetPlayer.Name)
+                        wait(2.5)
+                    else
+                        wait(1)
                     end
                 end
-                
-                wait(1)
             end
+            
+            wait(0.5)
             
             stopFollowing()
         else
