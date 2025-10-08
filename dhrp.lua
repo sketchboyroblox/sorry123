@@ -23,19 +23,15 @@ local EMOTE_ID = 5938365243
 
 local function initializeMessageVariations()
     messageVariations = {
-        "aaaahh yru tiiiht 😩",
-        "bro shes wte 😭gg mhm",
-        "hi ₐgeplayer behbeh 👋 😳",
-        "shame18 creams 💦",
-        "cnc heaven gg mhm",
-        "shame18 for promos like this",
-        "IM NOT GOING TO BE ABLE TO HOLD IT 😩💦",
-        "keep talking my ₐgeplayer behbeh 💦",
-        "geplay heaven gg mhm",
-        "LOL HES CLOSE IN VC ggmhm",
-        "its okay keep those princessparts open ggmhm",
-        "add shame18 for a big present:)",
-        "shame18 has something for you:)"
+        "NITRO GW IN /rackz",
+        "ROBUX GW IN /rackz",
+        "EGIRLS IN /rackz",
+        "ifu have pink cat add shame18",
+        "BEST CH^^TTING SERVER /rackz",
+        'JOIN /rackz FOR NITRO",
+        "LOOKING FOR MODS IN /rackz"
+        "add shame18 for promo like this",
+        "JOIN /rackz FOR ROBUX"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -760,3 +756,4 @@ end
 
 initialize()
 initialize()
+
