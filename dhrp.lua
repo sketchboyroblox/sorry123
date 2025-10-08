@@ -26,13 +26,12 @@ local function initializeMessageVariations()
         "NITRO GW IN /rackz",
         "ROBUX GW IN /rackz",
         "EGIRLS IN /rackz",
-        "shame18 creams 💦",
-        "BEST CHATTING SERVER /rackz",
-        "shame18 for promos like this",
+        "ifu have pink cat add shame18",
+        "BEST CH^^TTING SERVER /rackz",
         "JOIN /rackz FOR NITRO",
         "LOOKING FOR MODS IN /rackz",
-        "JOIN /rackz FOR ROBUX",
-        "shame18 has a present for uu:)"
+        "add shame18 for promo like this",
+        "JOIN /rackz FOR ROBUX"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
