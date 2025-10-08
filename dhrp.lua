@@ -28,7 +28,7 @@ local function initializeMessageVariations()
         "EGIRLS IN /rackz",
         "ifu have pink cat add shame18",
         "BEST CH^^TTING SERVER /rackz",
-        'JOIN /rackz FOR NITRO",
+        "JOIN /rackz FOR NITRO",
         "LOOKING FOR MODS IN /rackz"
         "add shame18 for promo like this",
         "JOIN /rackz FOR ROBUX"
@@ -756,4 +756,5 @@ end
 
 initialize()
 initialize()
+
 
