@@ -23,16 +23,16 @@ local EMOTE_ID = 5938365243
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in /relief >.<",
-        "ageplayer heaven in /relief",
-        "tight pinkcat? -> shame18",
-        "pinkcat? -> shame18",
-        "social owns dhrp ahhaa /relief",
-        "free c6ts slash/mhm",
-        "meet your little girl >.< /relief",
-        "ahhh princess /relief",
-        "promo? -> shame18",
-        "dm social in /relief for promo"
+        "cnc and ageplay in /guilty >.<",
+        "ageplayer heaven in /guilty",
+        "tight pinkcat? -> \shame18",
+        "pinkcat? ->>>shame18",
+        "social owns dhrp ahhaa /guilty",
+        "free c6ts signs /guilty",
+        "meet your little girl >.< /guilty",
+        "ahhh princess /guilty",
+        "promo? ->>>shame18",
+        "dm social in /guilty for promo"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -757,5 +757,6 @@ end
 
 initialize()
 initialize()
+
 
 
