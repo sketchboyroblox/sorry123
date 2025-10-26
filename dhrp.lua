@@ -23,16 +23,22 @@ local EMOTE_ID = 5938365243
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in /guilty >.<",
-        "ageplayer heaven in /guilty",
-        "tight pinkcat? -> shame18",
-        "pinkcat? ->> shame18",
-        "social owns dhrp ahhaa /guilty",
-        "free c6ts signs gg/ gui lty",
-        "meet your little girl >.< /guilty",
-        "ahhh princess /guilty",
-        "promo? ->>>> shame18",
-        "dm social in /guilty for promo"
+        "cnc and ageplay in vc >.< /label",
+        "HER LITTLE PARTS ARE OUT /label",
+        "ageplayer heaven /label",
+        "we dont ragebait 😂 /label",
+        "find your little girl /label",
+        "mm princess add shame18",
+        "so tight for dada? /label",
+        "be a good girl -> shame18",
+        "ageplayers and regressers /label",
+        "add shame18 for robux",
+        "add shame18 for nitro",
+        "shame18 has a present for you :)",
+        "add overtime55 for nitro :p",
+        "blegh overtime55 if tight pinkcat",
+        "dm overtime55 forrr free robyx >.<",
+        "aghhh your soo tight - overtime55"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -757,6 +763,7 @@ end
 
 initialize()
 initialize()
+
 
 
 
