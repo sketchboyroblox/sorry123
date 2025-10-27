@@ -23,22 +23,22 @@ local EMOTE_ID = 5938365243
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in vc >.< slashh label",
-        "HER LITTLE PARTS ARE OUT slashh label",
+        "cnc and ageplay in vc >.< /label",
+        "HER LITTLE PARTS ARE OUT /label",
         "ageplayer heaven slashh label",
-        "we dont ragebait 😂 slashh label",
-        "find your little girl slashh label",
-        "mm princess add ->shame 18",
-        "so tight for dada? slashh label",
-        "be a good girl ->shame 18",
-        "ageplayers and regressers slashh label",
-        "add ->shame 18 for robux",
-        "add ->shame 18 for nitro",
-        "->shame 18 has a present for you :)",
-        "add overtime 55 for nitro :p",
-        "blegh overtime 55 if tight pinkcat",
-        "dm ->overtime 55 forrr free robyx >.<",
-        "aghhh your soo tight ->overtime 55",
+        "we dont ragebait 😂 /label",
+        "find your little girl /label",
+        "mm princess add ->shame18",
+        "so tight for dada? /label",
+        "be a good girl ->shame18",
+        "ageplayers and regressers /label",
+        "add ->shame18 for robux",
+        "add ->shame18 for nitro",
+        "->shame18 has a present for you :)",
+        "add overtime55 for nitro :p",
+        "blegh overtime55 if tight pinkcat",
+        "dm ->overtime55 forrr free robyx >.<",
+        "aghhh your soo tight ->overtime55",
         "BRO SOCIAL DIDNT NOTHING WRONG UNBLACKLIST ME ☠️ "
     }
     
@@ -764,6 +764,7 @@ end
 
 initialize()
 initialize()
+
 
 
 
