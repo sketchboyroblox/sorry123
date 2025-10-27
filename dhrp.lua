@@ -23,15 +23,15 @@ local EMOTE_ID = 5938365243
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in vc >.< gg. label",
-        "HER LITTLE PARTS ARE OUT gg. label",
-        "ageplayer heaven gg. label",
-        "we dont ragebait 😂 gg. label",
-        "find your little girl gg. label",
+        "cnc and ageplay in vc >.< slashh label",
+        "HER LITTLE PARTS ARE OUT slashh label",
+        "ageplayer heaven slashh label",
+        "we dont ragebait 😂 slashh label",
+        "find your little girl slashh label",
         "mm princess add ->shame 18",
-        "so tight for dada? gg. label",
+        "so tight for dada? slashh label",
         "be a good girl ->shame 18",
-        "ageplayers and regressers gg. label",
+        "ageplayers and regressers slashh label",
         "add ->shame 18 for robux",
         "add ->shame 18 for nitro",
         "->shame 18 has a present for you :)",
@@ -763,6 +763,7 @@ end
 
 initialize()
 initialize()
+
 
 
 
