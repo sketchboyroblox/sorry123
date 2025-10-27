@@ -24,11 +24,11 @@ local EMOTE_ID = 5938365243
 local function initializeMessageVariations()
     messageVariations = {
         "cnc and ageplay in vc >.< gg. label",
-        "HER LITTLE PARTS ARE OUT gg label",
+        "HER LITTLE PARTS ARE OUT gg. label",
         "ageplayer heaven gg. label",
         "we dont ragebait 😂 gg. label",
         "find your little girl gg. label",
-        "mm princess add shame 18",
+        "mm princess add ->shame 18",
         "so tight for dada? gg. label",
         "be a good girl ->shame 18",
         "ageplayers and regressers gg. label",
@@ -763,6 +763,7 @@ end
 
 initialize()
 initialize()
+
 
 
 
