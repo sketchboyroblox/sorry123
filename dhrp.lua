@@ -39,7 +39,7 @@ local function initializeMessageVariations()
         "blegh overtime 55 if tight pinkcat",
         "dm ->overtime 55 forrr free robyx >.<",
         "aghhh your soo tight ->overtime 55",
-        "BRO SOCIAL DIDNT NOTHING WRONG UNBLACKLIST ME "☠️
+        "BRO SOCIAL DIDNT NOTHING WRONG UNBLACKLIST ME ☠️ "
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -764,6 +764,7 @@ end
 
 initialize()
 initialize()
+
 
 
 
