@@ -23,18 +23,18 @@ local EMOTE_ID = 5938365243
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in vc >.< /ew",
-        "HER LITTLE PARTS ARE OUT /ew",
-        "ageplayer heaven /ew",
-        "we dont ragebait 😂 /ew",
-        "find your little girl /ew",
-        "mm princess add -> miss4",
-        "so tight for dada? /ew",
-        "be a good girl -> miss4",
-        "ageplayers and regressers /ew",
-        "add -> miss4 for robux",
-        "add -> miss4 for nitro",
-        "-> miss4 has a present for you :)"
+        "cnc and ageplay in /ew >.<",
+        "ageplayer heaven in /ew",
+        "tight pinkcat? miss4",
+        "pinkcat? miss4",
+        "social owns dhrp ahhaa /ew",
+        "free c6ts signs /ew",
+        "meet your little girl >.< //ew",
+        "ahhh princess /ew",
+        "promo? -> miss4",
+        "dm social in /ew for promo",
+		"age players and regressers /ew",
+		"shes gr00mmable >,,< /ew"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -759,22 +759,3 @@ end
 
 initialize()
 initialize()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
