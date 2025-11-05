@@ -32,17 +32,17 @@ end
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in vc >.< /gun",
-        "HER LITTLE PARTS ARE OUT /gun",
-        "ageplayer heaven /gun",
-        "we dont ragebait 😂 /gun",
-        "find your little girl /gun",
-        "mm princess add -> oh89",
-        "so tight for dada? /gun",
-        "be a good girl -> oh89",
-        "ageplayers and regressers /gun",
-        "add -> oh89 for robux",
-        "add -> oh89 for nitro",
+        "cnc and ageplay in vc >.< slash gun",
+        "HER LITTLE PARTS ARE OUT slah gun",
+        "ageplayer heaven slash gun",
+        "we dont ragebait 😂 slash gun",
+        "find your little girl slash gun",
+        "mm princess add -> oh-89",
+        "so tight for dada? slash gun",
+        "be a good girl -> oh-89",
+        "ageplayers and regressers slash gun",
+        "add -> oh-89 for robux",
+        "add -> oh-89 for nitro",
         "-> oh89 has a present for you :)"
     }
     
@@ -921,4 +921,5 @@ local function initialize()
 end
 
 initialize()
+
 
