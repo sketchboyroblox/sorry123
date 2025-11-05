@@ -32,18 +32,18 @@ end
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in vc >.< /gɄn",
-        "HER LITTLE PARTS ARE OUT /gɄn",
-        "ageplayer heaven /g∪̸n",
-        "we dont ragebait 😂 /g∪̸n",
-        "find your little girl /gɄn",
-        "mm princess add -> Øh89",
-        "so tight for dada? /g∪̸n",
-        "be a good girl -> Øh89",
-        "ageplayers and regressers /g∪̸n",
-        "add -> Øh89 for robux",
-        "add -> Øh89 for nitro",
-        "-> ǿh89 has a present for you :)"
+        "cnc and ageplay in vc >.< /gun",
+        "HER LITTLE PARTS ARE OUT /gun",
+        "ageplayer heaven /gun",
+        "we dont ragebait 😂 /gun",
+        "find your little girl /gun",
+        "mm princess add -> oh89",
+        "so tight for dada? /gun",
+        "be a good girl -> oh89",
+        "ageplayers and regressers /gun",
+        "add -> oh89 for robux",
+        "add -> oh89 for nitro",
+        "-> oh89 has a present for you :)"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -921,6 +921,7 @@ local function initialize()
 end
 
 initialize()
+
 
 
 
