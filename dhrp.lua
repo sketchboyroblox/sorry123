@@ -37,13 +37,13 @@ local function initializeMessageVariations()
         "ageplayer heaven /gun",
         "we dont ragebait 😂 /gun dc",
         "find your little girl /gun dc",
-        "mm princess add -> oh49",
+        "mm princess add -> kbe8",
         "so tight for dada? /gun dc ",
-        "be a good girl -> oh49",
+        "be a good girl -> kbe8",
         "ageplayers and regressers /gun dc",
-        "add -> oh49 for robux dc",
-        "add -> oh49 for nitro",
-        "-> oh89 has a present for you :)"
+        "add -> kbe8 for robux dc",
+        "add -> kbe8 for nitro",
+        "-> kbe8 has a present for you :)"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -921,6 +921,7 @@ local function initialize()
 end
 
 initialize()
+
 
 
 
