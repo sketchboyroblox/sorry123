@@ -33,6 +33,9 @@ end
 local function initializeMessageVariations()
     messageVariations = {
         "cnc and ageplay in vc >.< /sadparty",
+        "robux party in .gg/sadparty",
+        "korblox and limited drops /sadparty",
+        "most active com rn /sadparty"
         "HER LITTLE PARTS ARE OUT /sadparty",
         "ageplayer heaven /sadparty",
         "we dont ragebait 😂 /sadparty dc",
@@ -921,6 +924,7 @@ local function initialize()
 end
 
 initialize()
+
 
 
 
