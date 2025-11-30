@@ -32,21 +32,21 @@ end
 
 local function initializeMessageVariations()
     messageVariations = {
-        "cnc and ageplay in vc >.< /sadparty",
-        "robux party in .gg/sadparty",
-        "korblox and limited drops /sadparty",
-        "most active com rn /sadparty"
-        "HER LITTLE PARTS ARE OUT /sadparty",
-        "ageplayer heaven /sadparty",
-        "we dont ragebait 😂 /sadparty dc",
-        "find your little girl /sadparty dc",
+        "cnc and ageplay in vc >.< /while",
+        "robux party in .gg/while",
+        "korblox and limited drops /while",
+        "most active com rn /while"
+        "HER LITTLE PARTS ARE OUT /while",
+        "ageplayer heaven /while",
+        "we dont ragebait 😂 /while dc",
+        "find your little girl /while dc",
         "mm princess add -> sighsd",
-        "so tight for dada? /sadparty dc ",
-        "be a good girl -> sighsd",
-        "ageplayers and regressers /sadparty dc",
-        "add -> sighsd for robux dc",
-        "add -> sighsd for nitro",
-        "-> sighsd has a present for you :)"
+        "so tight for dada? /while dc ",
+        "be a good girl -> freakgrl",
+        "ageplayers and regressers /while dc",
+        "add -> freakgrl for robux dc",
+        "add -> freakgrl for nitro",
+        "-> freakgrl has a present for you :)"
     }
     
     print("Loaded " .. #messageVariations .. " message variations")
@@ -924,6 +924,7 @@ local function initialize()
 end
 
 initialize()
+
 
 
 
