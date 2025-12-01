@@ -14,42 +14,112 @@ local joinedServers = {}
 local failedGames = {}
 local currentTargetPlayer = nil
 local usersProcessed = 0
-local maxUsersPerServer = 6
+local maxUsersPerGame = 3
 local followConnection = nil
 local pingOptimized = false
 local messageVariations = {}
 local autoStartEnabled = true
-local EMOTE_ID = 5938365243
-local rotationAngle = 0
 
-local lastActivityTime = tick()
-local INACTIVITY_THRESHOLD = 1080
-local antiInactivityEnabled = true
-
-local function updateActivity()
-    lastActivityTime = tick()
+local function generateAdvancedMessageVariations(baseMessage)
+    local variations = {}
+    
+    local unicodeSubstitutions = {
+        ["a"] = {"а", "α"},
+        ["e"] = {"е"},
+        ["o"] = {"о", "ο"},
+        ["i"] = {"ι"},
+        ["u"] = {"υ"},
+        ["c"] = {"с"},
+        ["p"] = {"р"},
+        ["x"] = {"х"},
+        ["y"] = {"у"},
+        ["u"] = {"Ų", "⋃̇"},
+        ["/"] = {"／", "╱"}
+    }
+    
+    local spacingTechniques = {
+        function(msg) return msg:gsub(" ", " . ") end,
+        function(msg) return msg:gsub(" ", "  ") end,
+        function(msg) return msg:gsub(" ", "  ") end,
+        function(msg) return msg:gsub("(%w)", "%1 ", 2) end
+    }
+    
+    local prefixes = {"Aw34f ", "Bsdf4g ", "asd233 ", "dfgbfd ", ""}
+    local suffixes = {" gg", " h", " g", " #d", ""}
+    
+    for i = 1, 8 do
+        local variation = baseMessage:lower()
+        
+        if math.random() > 0.6 then
+            for char, subs in pairs(unicodeSubstitutions) do
+                if math.random() > 0.8 then
+                    variation = variation:gsub(char, subs[1], 1)
+                end
+            end
+        end
+        
+        if math.random() > 0.5 then
+            local spacingFunc = spacingTechniques[math.random(#spacingTechniques)]
+            variation = spacingFunc(variation)
+        end
+        
+        if math.random() > 0.6 then
+            local prefix = prefixes[math.random(#prefixes)]
+            variation = prefix .. variation
+        end
+        
+        if math.random() > 0.6 then
+            local suffix = suffixes[math.random(#suffixes)]
+            variation = variation .. suffix
+        end
+        
+        if math.random() > 0.4 then
+            variation = variation .. string.rep(".", math.random(1, 2))
+        end
+        
+        table.insert(variations, variation)
+    end
+    
+    return variations
 end
 
 local function initializeMessageVariations()
-    messageVariations = {
-        "cnc and ageplay in vc >.< /while",
-        "robux party in .gg/while",
-        "korblox and limited drops /while",
-        "most active com rn /while"
-        "HER LITTLE PARTS ARE OUT /while",
-        "ageplayer heaven /while",
-        "we dont ragebait 😂 /while dc",
-        "find your little girl /while dc",
-        "mm princess add -> sighsd",
-        "so tight for dada? /while dc ",
-        "be a good girl -> freakgrl",
-        "ageplayers and regressers /while dc",
-        "add -> freakgrl for robux dc",
-        "add -> freakgrl for nitro",
-        "-> freakgrl has a present for you :)"
+    local baseMessages = {
+        "if your a cute baehbaeh add @b_dtime >.<",
+        "cnc and ageplay in vc /while",
+        "find your little girl /while",
+        "rich dadas in /while",
+        "ok idc add @b_dtime",
+        "uhh @b_dtime giving $$$ away",
+        "add @b_dtime blue"
+        
     }
     
-    print("Loaded " .. #messageVariations .. " message variations")
+    messageVariations = {}
+    
+    for _, msg in ipairs(baseMessages) do
+        local variations = generateAdvancedMessageVariations(msg)
+        for _, variation in ipairs(variations) do
+            table.insert(messageVariations, variation)
+        end
+    end
+    
+    local directMessages = {
+        "add b_dtime for a present:)",
+        "add b_dtime for promos like this",
+        "add b_dtime blue",
+        "add @b_dtime blue for robux",
+        "your all harmless beef @b_dtime",
+        "b_dtime has your nitro",
+        "b_dtime ifu hvae pinkcat >,,<"
+    }
+    
+    for _, msg in ipairs(directMessages) do
+        local variations = generateAdvancedMessageVariations(msg)
+        for _, variation in ipairs(variations) do
+            table.insert(messageVariations, variation)
+        end
+    end
 end
 
 local function applyNetworkOptimizations()
@@ -92,26 +162,12 @@ end
 
 local function forceDisableUI()
     spawn(function()
-        wait(2)
         while wait(0.5) do
             pcall(function()
-                wait(0.1)
                 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-            end)
-            pcall(function()
-                wait(0.1)
                 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
-            end)
-            pcall(function()
-                wait(0.1)
                 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)
-            end)
-            pcall(function()
-                wait(0.1)
                 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.EmotesMenu, false)
-            end)
-            pcall(function()
-                wait(0.1)
                 StarterGui:SetCore("TopbarEnabled", false)
             end)
             
@@ -196,12 +252,12 @@ local function queueScript()
 wait(2)
 print("Auto-restarting script...")
 local success = pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/sorry123/main/dhrp.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/roblox22/main/plan.lua"))()
 end)
 if not success then
     wait(3)
     pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/sorry123/main/dhrp.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/roblox22/main/plan.lua"))()
     end)
 end
 ]])
@@ -214,7 +270,7 @@ end
         if game.PlaceId then
             pcall(function()
                 print("Backup restart method activated")
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/sorry123/main/dhrp.lua"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/sketchboyroblox/roblox22/main/plan.lua"))()
             end)
         end
     end)
@@ -282,28 +338,6 @@ end
 local function waitForGameLoad()
     print("Starting enhanced game load sequence...")
     
-    wait(2)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.EmotesMenu, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCore("TopbarEnabled", false)
-    end)
-    
     waitForStableConnection()
     
     local attempts = 0
@@ -316,7 +350,7 @@ local function waitForGameLoad()
         print("Character load failed - attempting restart")
         wait(2)
         pcall(function()
-            teleportToRandomServer()
+            teleportToNewServer()
         end)
         return
     end
@@ -351,20 +385,19 @@ local function waitForGameLoad()
     end
     
     print("Game load sequence complete!")
-    updateActivity()
     wait(1)
 end
 
 local function cleanupOldServers()
     local currentTime = tick()
     for serverId, joinTime in pairs(joinedServers) do
-        if currentTime - joinTime >= 1800 then
+        if currentTime - joinTime >= 45 then
             joinedServers[serverId] = nil
         end
     end
     
     for gameId, failTime in pairs(failedGames) do
-        if currentTime - failTime >= 3600 then
+        if currentTime - failTime >= 90 then
             failedGames[gameId] = nil
         end
     end
@@ -373,37 +406,41 @@ end
 local function sendMessage(message)
     local success = false
     local attempts = 0
-    local maxAttempts = 3
     
-    while not success and attempts < maxAttempts do
+    while not success and attempts < 5 do
         success = pcall(function()
             if TextChatService.ChatInputBarConfiguration and TextChatService.ChatInputBarConfiguration.TargetTextChannel then
-                TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(message)
+                local stealthMessage = message
+                
+                if math.random() > 0.5 then
+                    stealthMessage = stealthMessage .. string.char(math.random(8203, 8205))
+                end
+                
+                TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(stealthMessage)
                 return true
             end
         end)
         
         if not success then
             attempts = attempts + 1
-            if attempts < maxAttempts then
-                print("Message send failed (attempt " .. attempts .. "/" .. maxAttempts .. "), retrying...")
-                wait(1)
-            else
-                print("Failed to send message after " .. maxAttempts .. " attempts")
-            end
+            wait(0.2)
         end
     end
     
-    updateActivity()
     return success
 end
 
-local function getRandomMessage()
-    if #messageVariations > 0 then
-        local randomIndex = math.random(1, #messageVariations)
-        return messageVariations[randomIndex]
+local function getRandomMessages()
+    local selectedMessages = {}
+    
+    for i = 1, 3 do
+        if #messageVariations > 0 then
+            local randomIndex = math.random(1, #messageVariations)
+            table.insert(selectedMessages, messageVariations[randomIndex])
+        end
     end
-    return nil
+    
+    return selectedMessages
 end
 
 local function stopFollowing()
@@ -413,48 +450,7 @@ local function stopFollowing()
     end
 end
 
-local function playEmote()
-    spawn(function()
-        pcall(function()
-            local character = player.Character
-            if character then
-                local humanoid = character:FindFirstChildOfClass("Humanoid")
-                if humanoid then
-                    humanoid:PlayEmoteAndGetAnimTrackById(EMOTE_ID)
-                end
-            end
-        end)
-        
-        pcall(function()
-            local character = player.Character
-            if character then
-                local humanoid = character:FindFirstChildOfClass("Humanoid")
-                if humanoid then
-                    local HumanoidDescription = humanoid:GetAppliedDescription()
-                    local success, emoteTable = pcall(function()
-                        return humanoid:GetEmotes()
-                    end)
-                    if success and emoteTable then
-                        for _, emote in pairs(emoteTable) do
-                            pcall(function()
-                                humanoid:PlayEmote(emote.Name)
-                            end)
-                        end
-                    end
-                end
-            end
-        end)
-        
-        pcall(function()
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/e dance", "All")
-        end)
-    end)
-    updateActivity()
-end
-
-local function followPlayerBehind(targetPlayer)
-    stopFollowing()
-    
+local function instantTeleportToPlayer(targetPlayer)
     if not targetPlayer or not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         return false
     end
@@ -464,49 +460,48 @@ local function followPlayerBehind(targetPlayer)
         return false
     end
     
-    playEmote()
-    rotationAngle = 0
-    
-    spawn(function()
-        while followConnection do
-            wait(1.5)
-            playEmote()
-        end
+    pcall(function()
+        local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+        local newPosition = targetPosition + Vector3.new(math.random(-2, 2), 8, math.random(-2, 2))
+        character.HumanoidRootPart.CFrame = CFrame.new(newPosition)
     end)
     
-    followConnection = RunService.Heartbeat:Connect(function()
-        pcall(function()
-            if targetPlayer and targetPlayer.Character then
-                local targetTorso = targetPlayer.Character:FindFirstChild("Torso") or targetPlayer.Character:FindFirstChild("UpperTorso") or targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-                
-                if targetTorso then
-                    rotationAngle = rotationAngle + 0.05
-                    if rotationAngle >= math.pi * 2 then
-                        rotationAngle = 0
-                    end
-                    
-                    local targetCFrame = targetTorso.CFrame
-                    local offsetX = math.cos(rotationAngle) * 5
-                    local offsetZ = math.sin(rotationAngle) * 5
-                    local rotationPosition = targetCFrame * CFrame.new(offsetX, 0, offsetZ)
-                    
-                    if character and character:FindFirstChild("HumanoidRootPart") then
-                        character.HumanoidRootPart.CFrame = rotationPosition
-                    end
-                else
-                    stopFollowing()
-                end
-            else
-                stopFollowing()
-            end
-        end)
-    end)
-    
-    updateActivity()
     return true
 end
 
-local function getSixPlayers()
+local function spinAroundPlayer(targetPlayer, duration)
+    if not targetPlayer or not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        return
+    end
+    
+    local character = player.Character
+    if not character or not character:FindFirstChild("HumanoidRootPart") then
+        return
+    end
+    
+    local startTime = tick()
+    local radius = 5
+    local speed = 3
+    
+    spawn(function()
+        while tick() - startTime < duration and isRunning do
+            pcall(function()
+                if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    local targetPos = targetPlayer.Character.HumanoidRootPart.Position
+                    local angle = (tick() * speed) % (math.pi * 2)
+                    local offsetX = math.cos(angle) * radius
+                    local offsetZ = math.sin(angle) * radius
+                    local newPosition = targetPos + Vector3.new(offsetX, 3, offsetZ)
+                    local lookAtTarget = CFrame.new(newPosition, targetPos)
+                    character.HumanoidRootPart.CFrame = lookAtTarget
+                end
+            end)
+            wait(0.03)
+        end
+    end)
+end
+
+local function getTopThreePlayers()
     local players = {}
     for _, p in pairs(Players:GetPlayers()) do
         if p ~= player and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
@@ -515,7 +510,7 @@ local function getSixPlayers()
     end
     
     local selectedPlayers = {}
-    for i = 1, math.min(maxUsersPerServer, #players) do
+    for i = 1, math.min(3, #players) do
         if #players > 0 then
             local randomIndex = math.random(1, #players)
             table.insert(selectedPlayers, players[randomIndex])
@@ -526,122 +521,38 @@ local function getSixPlayers()
     return selectedPlayers
 end
 
-local function processSixUsers()
-    print("Finding 6 different users to message...")
-    
-    local targetPlayers = getSixPlayers()
+local function processMultipleUsers()
+    local targetPlayers = getTopThreePlayers()
     if #targetPlayers == 0 then
-        print("No players found in server")
         wait(0.5)
         return false
     end
     
-    print("Found " .. #targetPlayers .. " users to message")
+    print("Processing " .. #targetPlayers .. " users simultaneously")
     
-    for i, targetPlayer in ipairs(targetPlayers) do
-        if not isRunning then break end
-        
-        print("Processing user " .. i .. "/" .. #targetPlayers .. ": " .. targetPlayer.Name)
-        
-        if followPlayerBehind(targetPlayer) then
-            wait(0.5)
-            
-            playEmote()
-            
-            local msgCount = 0
-            local maxMessages = 3
-            
-            while msgCount < maxMessages and isRunning do
-                msgCount = msgCount + 1
+    for _, targetPlayer in ipairs(targetPlayers) do
+        spawn(function()
+            if instantTeleportToPlayer(targetPlayer) then
+                wait(0.1)
                 
-                local message = getRandomMessage()
-                if message then
+                spinAroundPlayer(targetPlayer, 2.5)
+                
+                local selectedMessages = getRandomMessages()
+                for i, message in ipairs(selectedMessages) do
+                    if not isRunning then break end
                     local sent = sendMessage(message)
                     if sent then
-                        print("Message " .. msgCount .. "/" .. maxMessages .. " sent to " .. targetPlayer.Name)
-                        wait(2.5)
-                    else
-                        wait(1)
+                        print("Sent to " .. targetPlayer.Name .. ": " .. message)
                     end
+                    wait(math.random(0.3, 0.6))
                 end
             end
-            
-            wait(0.5)
-            
-            stopFollowing()
-        else
-            print("Failed to follow " .. targetPlayer.Name)
-        end
+        end)
+        wait(0.05)
     end
     
-    print("Finished messaging " .. #targetPlayers .. " users")
-    updateActivity()
+    wait(2)
     return true
-end
-
-local function getRandomServersForAntiInactivity(gameId)
-    local availableServers = {}
-    local httpAttempts = 0
-    
-    while httpAttempts < 2 do
-        local success, result = pcall(function()
-            return game:HttpGet("https://games.roblox.com/v1/games/" .. gameId .. "/servers/Public?sortOrder=Asc&limit=100", true)
-        end)
-        
-        if success then
-            local parseSuccess, data = pcall(function()
-                return HttpService:JSONDecode(result)
-            end)
-            
-            if parseSuccess and data and data.data and type(data.data) == "table" then
-                for _, server in ipairs(data.data) do
-                    if server and 
-                       server.id and 
-                       server.playing and 
-                       server.maxPlayers and
-                       server.playing >= 1 and
-                       server.playing < server.maxPlayers and
-                       server.id ~= game.JobId then
-                        table.insert(availableServers, {
-                            id = server.id,
-                            playing = server.playing,
-                            maxPlayers = server.maxPlayers
-                        })
-                    end
-                end
-                break
-            end
-        end
-        
-        httpAttempts = httpAttempts + 1
-        if httpAttempts < 2 then
-            wait(1)
-        end
-    end
-    
-    return availableServers
-end
-
-local function teleportToRandomServer()
-    print("Anti-inactivity: Joining random server...")
-    queueScript()
-    
-    local currentGameId = tostring(game.PlaceId)
-    local availableServers = getRandomServersForAntiInactivity(currentGameId)
-    
-    if #availableServers > 0 then
-        local randomServer = availableServers[math.random(1, #availableServers)]
-        print("Anti-inactivity: Joining server " .. randomServer.id)
-        
-        pcall(function()
-            TeleportService:TeleportToPlaceInstance(tonumber(currentGameId), randomServer.id, player)
-        end)
-    else
-        print("Anti-inactivity: No servers found, using random teleport")
-        pcall(function()
-            TeleportService:Teleport(tonumber(currentGameId), player)
-        end)
-    end
 end
 
 local function getAvailableServers(gameId)
@@ -794,26 +705,6 @@ local function teleportToNewServer()
     end
 end
 
-local function checkInactivityAndPrevent()
-    spawn(function()
-        while antiInactivityEnabled do
-            wait(30)
-            
-            if antiInactivityEnabled then
-                local timeSinceActivity = tick() - lastActivityTime
-                
-                if timeSinceActivity >= INACTIVITY_THRESHOLD then
-                    print("Anti-inactivity triggered: " .. math.floor(timeSinceActivity) .. " seconds since last activity")
-                    teleportToRandomServer()
-                    break
-                elseif timeSinceActivity >= INACTIVITY_THRESHOLD - 120 then
-                    print("Warning: Approaching inactivity limit (" .. math.floor(INACTIVITY_THRESHOLD - timeSinceActivity) .. " seconds remaining)")
-                end
-            end
-        end
-    end)
-end
-
 local function startSpamming()
     spawn(function()
         pcall(function()
@@ -822,11 +713,23 @@ local function startSpamming()
             if not isRunning then return end
             
             print("Starting spam process...")
+            local processedInThisGame = 0
             
-            processSixUsers()
+            while processedInThisGame < maxUsersPerGame and isRunning do
+                if processMultipleUsers() then
+                    processedInThisGame = processedInThisGame + 1
+                    usersProcessed = usersProcessed + 1
+                    saveScriptData()
+                    print("Processed batch " .. processedInThisGame .. "/" .. maxUsersPerGame)
+                    wait(math.random(0.5, 1))
+                else
+                    wait(0.5)
+                end
+            end
             
             if isRunning then
-                print("Finished processing users, hopping to new server...")
+                print("Max users reached, hopping to new server...")
+                usersProcessed = 0
                 saveScriptData()
                 wait(1)
                 teleportToNewServer()
@@ -838,7 +741,6 @@ end
 local function stopSpamming()
     isRunning = false
     autoStartEnabled = false
-    antiInactivityEnabled = false
     stopFollowing()
     saveScriptData()
     print("Script stopped")
@@ -851,93 +753,36 @@ local function onKeyPress(key)
         if not isRunning then
             isRunning = true
             autoStartEnabled = true
-            antiInactivityEnabled = true
             startSpamming()
-            checkInactivityAndPrevent()
         else
             teleportToNewServer()
         end
-    elseif key.KeyCode == Enum.KeyCode.T then
-        teleportToRandomServer()
     end
 end
 
 local function initialize()
-    print("Improved error handling and restart system with anti-inactivity")
+    print("Improved error handling and restart system")
     
-    wait(2)
     pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.EmotesMenu, false)
-    end)
-    pcall(function()
-        wait(0.1)
-        StarterGui:SetCore("TopbarEnabled", false)
-    end)
-    
-    local success, errorMsg = pcall(function()
-        print("Initializing message variations...")
         initializeMessageVariations()
-        print("Message variations initialized: " .. #messageVariations .. " total")
         
-        print("Loading script data...")
         local shouldAutoStart = loadScriptData()
-        print("Script data loaded, auto-start: " .. tostring(shouldAutoStart))
         
-        print("Setting up key bindings...")
         UserInputService.InputBegan:Connect(onKeyPress)
-        print("Key bindings ready (Q to stop, R to restart, T for random server)")
         
         if game.JobId and game.JobId ~= "" then
             joinedServers[game.JobId] = tick()
-            print("Current server ID registered: " .. game.JobId)
         end
-        
-        print("Starting anti-inactivity system...")
-        checkInactivityAndPrevent()
         
         print("AUTO-STARTING SPAM PROCESS...")
         isRunning = true
         autoStartEnabled = true
-        antiInactivityEnabled = true
         
         wait(1)
         startSpamming()
     end)
-    
-    if not success then
-        warn("INITIALIZATION FAILED: " .. tostring(errorMsg))
-        print("Error details: " .. tostring(errorMsg))
-    end
 end
 
 initialize()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
