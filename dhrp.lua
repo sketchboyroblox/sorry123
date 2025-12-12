@@ -85,13 +85,14 @@ end
 
 local function initializeMessageVariations()
     local baseMessages = {
-        "if your a cute baehbaeh add @b_dtime >.<",
-        "cnc and ageplay in vc /while",
-        "find your little girl /while",
-        "rich dadas in /while",
-        "ok idc add @b_dtime",
-        "uhh @b_dtime giving $$$ away",
-        "add @b_dtime blue"
+        "ageplayer heaven in /husband",
+        "cnc and ageplay in vc /husband",
+        "find your little girl /husband",
+        "rich dadas in /husband",
+        "tight pinkcat in /husband",
+        "ageplayers are in /husband >.<",
+        "#1 com /husband",
+        "com stages in /husband"
         
     }
     
@@ -108,8 +109,8 @@ local function initializeMessageVariations()
         "add b_dtime for a present:)",
         "add b_dtime for promos like this",
         "add b_dtime blue",
-        "add @b_dtime blue for robux",
-        "your all harmless beef @b_dtime",
+        "dm b_dtime for roles in /husband",
+        "your all harmless /husband",
         "b_dtime has your nitro",
         "b_dtime ifu hvae pinkcat >,,<"
     }
@@ -784,5 +785,3 @@ local function initialize()
 end
 
 initialize()
-
-
